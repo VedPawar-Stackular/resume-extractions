@@ -1,0 +1,69 @@
+{
+  "tool": "markitdown",
+  "tool_version": "0.1.4+",
+  "run_at": "2026-04-29T06:52:32.420718+00:00",
+  "total_files": 3,
+  "successful": 0,
+  "empty_outputs": 3,
+  "errors": 0,
+  "avg_duration_seconds": 0.0254,
+  "known_limitations": [
+    "No built-in OCR \u2014 scanned PDFs produce empty output",
+    "pdfminer.six backend strips heading structure from PDFs",
+    "Complex multi-column PDF layouts may merge into garbled text",
+    "Table extraction from PDFs is unreliable",
+    "DOCX quality is significantly better than PDF quality"
+  ],
+  "files": [
+    {
+      "file": "Sample_Image_resume.docx",
+      "format": ".docx",
+      "pdf_type": null,
+      "duration_seconds": 0.0517,
+      "char_count": 29,
+      "line_count": 1,
+      "has_headings": false,
+      "has_tables": false,
+      "warning_count": 1,
+      "warnings": [
+        "Output is near-empty (29 chars). Likely a scanned PDF or unsupported layout."
+      ],
+      "error": null,
+      "status": "empty"
+    },
+    {
+      "file": "Sample_Image_resume.pdf",
+      "format": ".pdf",
+      "pdf_type": "scanned",
+      "duration_seconds": 0.0216,
+      "char_count": 1,
+      "line_count": 1,
+      "has_headings": false,
+      "has_tables": false,
+      "warning_count": 3,
+      "warnings": [
+        "Scanned PDF detected (no text layer). MarkItDown will produce empty output. This is a known limitation \u2014 MarkItDown requires markitdown-ocr plugin + LLM vision client for scanned files.",
+        "Output is near-empty (1 chars). Likely a scanned PDF or unsupported layout.",
+        "No Markdown headings found in PDF output. MarkItDown's pdfminer.six backend strips heading structure from PDFs. Section detection will be degraded for the LLM scoring step."
+      ],
+      "error": null,
+      "status": "empty"
+    },
+    {
+      "file": "Screenshot 2026-04-28 163934.png",
+      "format": ".png",
+      "pdf_type": null,
+      "duration_seconds": 0.0029,
+      "char_count": 0,
+      "line_count": 0,
+      "has_headings": false,
+      "has_tables": false,
+      "warning_count": 1,
+      "warnings": [
+        "Output is near-empty (0 chars). Likely a scanned PDF or unsupported layout."
+      ],
+      "error": null,
+      "status": "empty"
+    }
+  ]
+}

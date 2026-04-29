@@ -1,0 +1,18 @@
+{
+  "file": "Sample_Image_resume.pdf",
+  "file_path": "C:\\Stackular-Project-1\\resume-extractions\\sample_resumes\\Images\\Sample_Image_resume.pdf",
+  "format": ".pdf",
+  "pdf_type": "scanned",
+  "tool": "markitdown",
+  "tool_version": "0.1.4+",
+  "extracted_at": "2026-04-29T06:52:32.377931+00:00",
+  "duration_seconds": 0.0216,
+  "char_count": 1,
+  "line_count": 1,
+  "warnings": [
+    "Scanned PDF detected (no text layer). MarkItDown will produce empty output. This is a known limitation \u2014 MarkItDown requires markitdown-ocr plugin + LLM vision client for scanned files.",
+    "Output is near-empty (1 chars). Likely a scanned PDF or unsupported layout.",
+    "No Markdown headings found in PDF output. MarkItDown's pdfminer.six backend strips heading structure from PDFs. Section detection will be degraded for the LLM scoring step."
+  ],
+  "error": null
+}
