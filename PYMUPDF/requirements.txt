@@ -1,0 +1,8 @@
+# PyMuPDF (raw fitz) — Resume Extraction Evaluation
+# Python 3.10+ required
+
+# Core: PyMuPDF — the raw engine that pymupdf4llm wraps
+pymupdf>=1.24.0
+
+# For metrics reporting
+tabulate>=0.9.0

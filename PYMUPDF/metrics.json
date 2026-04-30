@@ -1,0 +1,57 @@
+{
+  "tool": "pymupdf_raw",
+  "tool_version": "1.27.2.3",
+  "run_at": "2026-04-29T10:45:55.969193+00:00",
+  "total_files": 1,
+  "successful": 1,
+  "empty_outputs": 0,
+  "errors": 0,
+  "avg_duration_seconds": 0.0685,
+  "role_in_eval": "BASELINE \u2014 shows what PyMuPDF provides with zero post-processing, and what our own font-size inference can recover. pymupdf4llm (03) is built on top of this exact engine.",
+  "what_raw_gives_you": [
+    "Full text content (native PDFs)",
+    "Word-level bounding boxes (bbox per span)",
+    "Font name, size, bold/italic flags per span",
+    "Reading order control via sort=True",
+    "Page dimensions and block structure"
+  ],
+  "what_raw_does_not_give_you": [
+    "Markdown headings (must infer from font sizes yourself)",
+    "Markdown tables (must detect from bounding boxes yourself)",
+    "OCR for scanned PDFs (must add Tesseract separately)",
+    "Multi-column ordering (sort=True helps but is not perfect)",
+    "Bold/italic Markdown syntax (must map flags yourself)",
+    "DOCX / image support"
+  ],
+  "files": [
+    {
+      "file": "AKSHAY KUCHHAL 2.pdf",
+      "format": ".pdf",
+      "pdf_type": "native",
+      "duration_seconds": 0.0685,
+      "raw_char_count": 6588,
+      "inferred_char_count": 6476,
+      "inferred_heading_count": 1,
+      "span_count": 203,
+      "unique_font_sizes": [
+        13.0,
+        11.0,
+        10.7,
+        10.6,
+        10.0
+      ],
+      "body_font_size": 10.0,
+      "heading_map": {
+        "10.0": "",
+        "13.0": "# ",
+        "11.0": "## ",
+        "10.7": "### "
+      },
+      "page_count": 1,
+      "warning_count": 0,
+      "warnings": [],
+      "error": null,
+      "status": "ok"
+    }
+  ]
+}
