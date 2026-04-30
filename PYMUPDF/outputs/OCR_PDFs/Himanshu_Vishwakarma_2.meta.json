@@ -1,0 +1,23 @@
+{
+  "file": "Himanshu_Vishwakarma_2.pdf",
+  "format": ".pdf",
+  "pdf_type": "scanned",
+  "tool": "pymupdf_raw",
+  "tool_version": "1.27.2.3",
+  "extracted_at": "2026-04-30T08:02:41.221323+00:00",
+  "duration_seconds": 0.3775,
+  "raw_char_count": 1,
+  "raw_line_count": 1,
+  "inferred_char_count": 0,
+  "inferred_heading_count": 0,
+  "span_count": 0,
+  "unique_font_sizes": [],
+  "body_font_size": null,
+  "heading_map": {},
+  "page_count": 2,
+  "warnings": [
+    "PDF type 'scanned' \u2014 scanned pages have no text layer. Raw PyMuPDF has NO built-in OCR. Those pages will be empty. Use pymupdf4llm (with Tesseract) or Marker for scanned support.",
+    "Raw output near-empty (1 chars). Scanned PDF \u2014 no text layer found. OCR required."
+  ],
+  "error": null
+}

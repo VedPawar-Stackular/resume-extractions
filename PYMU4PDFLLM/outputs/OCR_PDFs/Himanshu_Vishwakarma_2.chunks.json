@@ -1,0 +1,824 @@
+[
+  {
+    "page": 1,
+    "char_count": 4142,
+    "metadata": {
+      "metadata": {
+        "format": "PDF 1.7",
+        "title": "himanshu_resume_v3.pdf",
+        "author": "Himanshu vishwakarma",
+        "subject": "",
+        "keywords": "",
+        "creator": "",
+        "producer": "Microsoft: Print To PDF",
+        "creationDate": "D:20260303195429+05'30'",
+        "modDate": "D:20260303195429+05'30'",
+        "trapped": "",
+        "encryption": null,
+        "file_path": "C:\\Stackular-Project-1\\resume-extractions\\sample_resumes\\Himanshu_Vishwakarma_2.pdf",
+        "page_count": 2,
+        "page_number": 1
+      },
+      "toc_items": [],
+      "page_boxes": [
+        {
+          "index": 0,
+          "class": "page-header",
+          "bbox": [
+            173,
+            60,
+            522,
+            88
+          ],
+          "pos": [
+            0,
+            117
+          ]
+        },
+        {
+          "index": 1,
+          "class": "text",
+          "bbox": [
+            91,
+            78,
+            205,
+            88
+          ],
+          "pos": [
+            117,
+            145
+          ]
+        },
+        {
+          "index": 2,
+          "class": "text",
+          "bbox": [
+            73,
+            131,
+            540,
+            171
+          ],
+          "pos": [
+            145,
+            581
+          ]
+        },
+        {
+          "index": 3,
+          "class": "section-header",
+          "bbox": [
+            66,
+            198,
+            166,
+            210
+          ],
+          "pos": [
+            581,
+            604
+          ]
+        },
+        {
+          "index": 4,
+          "class": "text",
+          "bbox": [
+            66,
+            220,
+            141,
+            230
+          ],
+          "pos": [
+            604,
+            622
+          ]
+        },
+        {
+          "index": 5,
+          "class": "section-header",
+          "bbox": [
+            66,
+            254,
+            159,
+            264
+          ],
+          "pos": [
+            622,
+            646
+          ]
+        },
+        {
+          "index": 6,
+          "class": "list-item",
+          "bbox": [
+            170,
+            220,
+            547,
+            253
+          ],
+          "pos": [
+            646,
+            879
+          ]
+        },
+        {
+          "index": 7,
+          "class": "list-item",
+          "bbox": [
+            170,
+            254,
+            547,
+            287
+          ],
+          "pos": [
+            879,
+            1093
+          ]
+        },
+        {
+          "index": 8,
+          "class": "list-item",
+          "bbox": [
+            66,
+            288,
+            547,
+            354
+          ],
+          "pos": [
+            1093,
+            1555
+          ]
+        },
+        {
+          "index": 9,
+          "class": "section-header",
+          "bbox": [
+            66,
+            364,
+            189,
+            376
+          ],
+          "pos": [
+            1555,
+            1584
+          ]
+        },
+        {
+          "index": 10,
+          "class": "section-header",
+          "bbox": [
+            66,
+            389,
+            185,
+            399
+          ],
+          "pos": [
+            1584,
+            1615
+          ]
+        },
+        {
+          "index": 11,
+          "class": "text",
+          "bbox": [
+            479,
+            389,
+            547,
+            399
+          ],
+          "pos": [
+            1615,
+            1640
+          ]
+        },
+        {
+          "index": 12,
+          "class": "text",
+          "bbox": [
+            66,
+            400,
+            261,
+            410
+          ],
+          "pos": [
+            1640,
+            1693
+          ]
+        },
+        {
+          "index": 13,
+          "class": "text",
+          "bbox": [
+            66,
+            413,
+            221,
+            424
+          ],
+          "pos": [
+            1693,
+            1737
+          ]
+        },
+        {
+          "index": 14,
+          "class": "list-item",
+          "bbox": [
+            69,
+            425,
+            547,
+            447
+          ],
+          "pos": [
+            1737,
+            1940
+          ]
+        },
+        {
+          "index": 15,
+          "class": "list-item",
+          "bbox": [
+            69,
+            449,
+            547,
+            471
+          ],
+          "pos": [
+            1940,
+            2125
+          ]
+        },
+        {
+          "index": 16,
+          "class": "list-item",
+          "bbox": [
+            69,
+            473,
+            525,
+            483
+          ],
+          "pos": [
+            2125,
+            2236
+          ]
+        },
+        {
+          "index": 17,
+          "class": "list-item",
+          "bbox": [
+            69,
+            486,
+            547,
+            507
+          ],
+          "pos": [
+            2236,
+            2394
+          ]
+        },
+        {
+          "index": 18,
+          "class": "list-item",
+          "bbox": [
+            69,
+            509,
+            547,
+            531
+          ],
+          "pos": [
+            2394,
+            2563
+          ]
+        },
+        {
+          "index": 19,
+          "class": "section-header",
+          "bbox": [
+            66,
+            543,
+            171,
+            553
+          ],
+          "pos": [
+            2563,
+            2591
+          ]
+        },
+        {
+          "index": 20,
+          "class": "text",
+          "bbox": [
+            473,
+            543,
+            547,
+            553
+          ],
+          "pos": [
+            2591,
+            2617
+          ]
+        },
+        {
+          "index": 21,
+          "class": "text",
+          "bbox": [
+            66,
+            554,
+            237,
+            564
+          ],
+          "pos": [
+            2617,
+            2665
+          ]
+        },
+        {
+          "index": 22,
+          "class": "text",
+          "bbox": [
+            66,
+            568,
+            355,
+            577
+          ],
+          "pos": [
+            2665,
+            2746
+          ]
+        },
+        {
+          "index": 23,
+          "class": "list-item",
+          "bbox": [
+            69,
+            579,
+            547,
+            624
+          ],
+          "pos": [
+            2746,
+            3110
+          ]
+        },
+        {
+          "index": 24,
+          "class": "list-item",
+          "bbox": [
+            69,
+            626,
+            547,
+            659
+          ],
+          "pos": [
+            3110,
+            3426
+          ]
+        },
+        {
+          "index": 25,
+          "class": "list-item",
+          "bbox": [
+            69,
+            661,
+            547,
+            683
+          ],
+          "pos": [
+            3426,
+            3615
+          ]
+        },
+        {
+          "index": 26,
+          "class": "list-item",
+          "bbox": [
+            69,
+            685,
+            547,
+            707
+          ],
+          "pos": [
+            3615,
+            3793
+          ]
+        },
+        {
+          "index": 27,
+          "class": "list-item",
+          "bbox": [
+            69,
+            709,
+            547,
+            731
+          ],
+          "pos": [
+            3793,
+            3967
+          ]
+        },
+        {
+          "index": 28,
+          "class": "list-item",
+          "bbox": [
+            69,
+            733,
+            546,
+            755
+          ],
+          "pos": [
+            3967,
+            4138
+          ]
+        },
+        {
+          "index": 29,
+          "class": "page-footer",
+          "bbox": [
+            304,
+            778,
+            309,
+            786
+          ],
+          "pos": [
+            4138,
+            4142
+          ]
+        }
+      ]
+    },
+    "preview": "Senior AI Product Manager | CSPO | IIM Kozhikode | +91-8130632869 | linkedin.com/in/hvishwkarma | Hyderabad, India   himanshu.me2011@gmail.com   LLMs, RAG architectures, agentic workflows, model lifec"
+  },
+  {
+    "page": 2,
+    "char_count": 3979,
+    "metadata": {
+      "metadata": {
+        "format": "PDF 1.7",
+        "title": "himanshu_resume_v3.pdf",
+        "author": "Himanshu vishwakarma",
+        "subject": "",
+        "keywords": "",
+        "creator": "",
+        "producer": "Microsoft: Print To PDF",
+        "creationDate": "D:20260303195429+05'30'",
+        "modDate": "D:20260303195429+05'30'",
+        "trapped": "",
+        "encryption": null,
+        "file_path": "C:\\Stackular-Project-1\\resume-extractions\\sample_resumes\\Himanshu_Vishwakarma_2.pdf",
+        "page_count": 2,
+        "page_number": 2
+      },
+      "toc_items": [],
+      "page_boxes": [
+        {
+          "index": 0,
+          "class": "page-header",
+          "bbox": [
+            469,
+            40,
+            547,
+            50
+          ],
+          "pos": [
+            0,
+            26
+          ]
+        },
+        {
+          "index": 1,
+          "class": "text",
+          "bbox": [
+            66,
+            40,
+            276,
+            74
+          ],
+          "pos": [
+            26,
+            146
+          ]
+        },
+        {
+          "index": 2,
+          "class": "list-item",
+          "bbox": [
+            69,
+            76,
+            546,
+            98
+          ],
+          "pos": [
+            146,
+            349
+          ]
+        },
+        {
+          "index": 3,
+          "class": "list-item",
+          "bbox": [
+            69,
+            100,
+            547,
+            133
+          ],
+          "pos": [
+            349,
+            618
+          ]
+        },
+        {
+          "index": 4,
+          "class": "list-item",
+          "bbox": [
+            69,
+            135,
+            547,
+            168
+          ],
+          "pos": [
+            618,
+            910
+          ]
+        },
+        {
+          "index": 5,
+          "class": "list-item",
+          "bbox": [
+            69,
+            171,
+            547,
+            192
+          ],
+          "pos": [
+            910,
+            1068
+          ]
+        },
+        {
+          "index": 6,
+          "class": "list-item",
+          "bbox": [
+            69,
+            195,
+            547,
+            216
+          ],
+          "pos": [
+            1068,
+            1250
+          ]
+        },
+        {
+          "index": 7,
+          "class": "list-item",
+          "bbox": [
+            69,
+            219,
+            547,
+            240
+          ],
+          "pos": [
+            1250,
+            1427
+          ]
+        },
+        {
+          "index": 8,
+          "class": "list-item",
+          "bbox": [
+            69,
+            243,
+            547,
+            264
+          ],
+          "pos": [
+            1427,
+            1587
+          ]
+        },
+        {
+          "index": 9,
+          "class": "section-header",
+          "bbox": [
+            66,
+            276,
+            214,
+            286
+          ],
+          "pos": [
+            1587,
+            1624
+          ]
+        },
+        {
+          "index": 10,
+          "class": "text",
+          "bbox": [
+            467,
+            276,
+            547,
+            286
+          ],
+          "pos": [
+            1624,
+            1650
+          ]
+        },
+        {
+          "index": 11,
+          "class": "list-item",
+          "bbox": [
+            66,
+            288,
+            237,
+            297
+          ],
+          "pos": [
+            1650,
+            1700
+          ]
+        },
+        {
+          "index": 12,
+          "class": "list-item",
+          "bbox": [
+            69,
+            301,
+            547,
+            323
+          ],
+          "pos": [
+            1700,
+            1892
+          ]
+        },
+        {
+          "index": 13,
+          "class": "section-header",
+          "bbox": [
+            66,
+            334,
+            210,
+            344
+          ],
+          "pos": [
+            1892,
+            1927
+          ]
+        },
+        {
+          "index": 14,
+          "class": "text",
+          "bbox": [
+            471,
+            334,
+            547,
+            344
+          ],
+          "pos": [
+            1927,
+            1953
+          ]
+        },
+        {
+          "index": 15,
+          "class": "list-item",
+          "bbox": [
+            66,
+            346,
+            240,
+            355
+          ],
+          "pos": [
+            1953,
+            2004
+          ]
+        },
+        {
+          "index": 16,
+          "class": "list-item",
+          "bbox": [
+            69,
+            359,
+            549,
+            391
+          ],
+          "pos": [
+            2004,
+            2231
+          ]
+        },
+        {
+          "index": 17,
+          "class": "section-header",
+          "bbox": [
+            66,
+            401,
+            204,
+            413
+          ],
+          "pos": [
+            2231,
+            2262
+          ]
+        },
+        {
+          "index": 18,
+          "class": "text",
+          "bbox": [
+            66,
+            423,
+            547,
+            558
+          ],
+          "pos": [
+            2262,
+            3337
+          ]
+        },
+        {
+          "index": 19,
+          "class": "section-header",
+          "bbox": [
+            66,
+            567,
+            119,
+            576
+          ],
+          "pos": [
+            3337,
+            3352
+          ]
+        },
+        {
+          "index": 20,
+          "class": "text",
+          "bbox": [
+            66,
+            588,
+            547,
+            634
+          ],
+          "pos": [
+            3352,
+            3551
+          ]
+        },
+        {
+          "index": 21,
+          "class": "text",
+          "bbox": [
+            66,
+            624,
+            281,
+            645
+          ],
+          "pos": [
+            3551,
+            3640
+          ]
+        },
+        {
+          "index": 22,
+          "class": "section-header",
+          "bbox": [
+            66,
+            667,
+            135,
+            676
+          ],
+          "pos": [
+            3640,
+            3660
+          ]
+        },
+        {
+          "index": 23,
+          "class": "text",
+          "bbox": [
+            66,
+            702,
+            512,
+            760
+          ],
+          "pos": [
+            3660,
+            3975
+          ]
+        },
+        {
+          "index": 24,
+          "class": "page-footer",
+          "bbox": [
+            304,
+            778,
+            309,
+            786
+          ],
+          "pos": [
+            3975,
+            3979
+          ]
+        }
+      ]
+    },
+    "preview": "Aug 2019 ~~-~~ Apr 2024   Product Manager Ajayvision Education Pvt. Ltd. - Noida, India Platform Ownership, LLM Prototyping, Analytics & Growth   - e Took StudentEdge K-12 LMS from MVP to full product"
+  }
+]

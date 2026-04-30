@@ -1,0 +1,18 @@
+{
+  "file": "AKSHAY_KUCHHAL_2-Copy-Copy.pdf",
+  "file_path": "C:\\Stackular-Project-1\\resume-extractions\\sample_resumes\\AKSHAY_KUCHHAL_2-Copy-Copy.pdf",
+  "format": ".pdf",
+  "pdf_type": "native",
+  "tool": "pymupdf4llm",
+  "tool_version": "1.27.2.3",
+  "tesseract": true,
+  "extracted_at": "2026-04-30T08:05:07.787852+00:00",
+  "duration_seconds": 4.3873,
+  "char_count": 6637,
+  "line_count": 114,
+  "page_count": 1,
+  "heading_count": 9,
+  "table_count": 8,
+  "warnings": [],
+  "error": null
+}

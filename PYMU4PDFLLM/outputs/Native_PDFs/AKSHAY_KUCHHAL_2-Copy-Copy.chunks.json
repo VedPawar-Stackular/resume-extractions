@@ -1,0 +1,686 @@
+[
+  {
+    "page": 1,
+    "char_count": 6637,
+    "metadata": {
+      "metadata": {
+        "format": "PDF 1.5",
+        "title": "",
+        "author": "",
+        "subject": "",
+        "keywords": "",
+        "creator": "",
+        "producer": "iLovePDF",
+        "creationDate": "",
+        "modDate": "D:20260208074852Z",
+        "trapped": "",
+        "encryption": null,
+        "file_path": "C:\\Stackular-Project-1\\resume-extractions\\sample_resumes\\AKSHAY_KUCHHAL_2-Copy-Copy.pdf",
+        "page_count": 1,
+        "page_number": 1
+      },
+      "toc_items": [],
+      "page_boxes": [
+        {
+          "index": 0,
+          "class": "table",
+          "bbox": [
+            14,
+            11,
+            582,
+            127
+          ],
+          "pos": [
+            0,
+            586
+          ]
+        },
+        {
+          "index": 1,
+          "class": "text",
+          "bbox": [
+            15,
+            128,
+            556,
+            138
+          ],
+          "pos": [
+            586,
+            725
+          ]
+        },
+        {
+          "index": 2,
+          "class": "section-header",
+          "bbox": [
+            15,
+            144,
+            136,
+            154
+          ],
+          "pos": [
+            725,
+            759
+          ]
+        },
+        {
+          "index": 3,
+          "class": "list-item",
+          "bbox": [
+            15,
+            157,
+            534,
+            167
+          ],
+          "pos": [
+            759,
+            896
+          ]
+        },
+        {
+          "index": 4,
+          "class": "list-item",
+          "bbox": [
+            15,
+            170,
+            575,
+            179
+          ],
+          "pos": [
+            896,
+            1039
+          ]
+        },
+        {
+          "index": 5,
+          "class": "list-item",
+          "bbox": [
+            15,
+            182,
+            507,
+            192
+          ],
+          "pos": [
+            1039,
+            1168
+          ]
+        },
+        {
+          "index": 6,
+          "class": "list-item",
+          "bbox": [
+            28,
+            195,
+            546,
+            204
+          ],
+          "pos": [
+            1168,
+            1314
+          ]
+        },
+        {
+          "index": 7,
+          "class": "list-item",
+          "bbox": [
+            15,
+            207,
+            582,
+            229
+          ],
+          "pos": [
+            1314,
+            1500
+          ]
+        },
+        {
+          "index": 8,
+          "class": "list-item",
+          "bbox": [
+            15,
+            232,
+            533,
+            241
+          ],
+          "pos": [
+            1500,
+            1639
+          ]
+        },
+        {
+          "index": 9,
+          "class": "list-item",
+          "bbox": [
+            15,
+            245,
+            582,
+            267
+          ],
+          "pos": [
+            1639,
+            1853
+          ]
+        },
+        {
+          "index": 10,
+          "class": "text",
+          "bbox": [
+            15,
+            269,
+            544,
+            279
+          ],
+          "pos": [
+            1853,
+            1982
+          ]
+        },
+        {
+          "index": 11,
+          "class": "section-header",
+          "bbox": [
+            15,
+            286,
+            125,
+            295
+          ],
+          "pos": [
+            1982,
+            2015
+          ]
+        },
+        {
+          "index": 12,
+          "class": "list-item",
+          "bbox": [
+            15,
+            298,
+            572,
+            308
+          ],
+          "pos": [
+            2015,
+            2154
+          ]
+        },
+        {
+          "index": 13,
+          "class": "list-item",
+          "bbox": [
+            15,
+            311,
+            568,
+            333
+          ],
+          "pos": [
+            2154,
+            2330
+          ]
+        },
+        {
+          "index": 14,
+          "class": "list-item",
+          "bbox": [
+            15,
+            336,
+            507,
+            346
+          ],
+          "pos": [
+            2330,
+            2457
+          ]
+        },
+        {
+          "index": 15,
+          "class": "list-item",
+          "bbox": [
+            15,
+            349,
+            519,
+            358
+          ],
+          "pos": [
+            2457,
+            2582
+          ]
+        },
+        {
+          "index": 16,
+          "class": "list-item",
+          "bbox": [
+            28,
+            361,
+            533,
+            370
+          ],
+          "pos": [
+            2582,
+            2723
+          ]
+        },
+        {
+          "index": 17,
+          "class": "section-header",
+          "bbox": [
+            15,
+            373,
+            117,
+            381
+          ],
+          "pos": [
+            2723,
+            2753
+          ]
+        },
+        {
+          "index": 18,
+          "class": "list-item",
+          "bbox": [
+            15,
+            386,
+            573,
+            395
+          ],
+          "pos": [
+            2753,
+            2896
+          ]
+        },
+        {
+          "index": 19,
+          "class": "text",
+          "bbox": [
+            15,
+            399,
+            582,
+            433
+          ],
+          "pos": [
+            2896,
+            3265
+          ]
+        },
+        {
+          "index": 20,
+          "class": "section-header",
+          "bbox": [
+            15,
+            440,
+            81,
+            447
+          ],
+          "pos": [
+            3265,
+            3285
+          ]
+        },
+        {
+          "index": 21,
+          "class": "list-item",
+          "bbox": [
+            15,
+            452,
+            554,
+            462
+          ],
+          "pos": [
+            3285,
+            3421
+          ]
+        },
+        {
+          "index": 22,
+          "class": "list-item",
+          "bbox": [
+            28,
+            464,
+            539,
+            474
+          ],
+          "pos": [
+            3421,
+            3566
+          ]
+        },
+        {
+          "index": 23,
+          "class": "list-item",
+          "bbox": [
+            28,
+            477,
+            506,
+            486
+          ],
+          "pos": [
+            3566,
+            3694
+          ]
+        },
+        {
+          "index": 24,
+          "class": "section-header",
+          "bbox": [
+            15,
+            489,
+            106,
+            498
+          ],
+          "pos": [
+            3694,
+            3721
+          ]
+        },
+        {
+          "index": 25,
+          "class": "list-item",
+          "bbox": [
+            15,
+            502,
+            551,
+            511
+          ],
+          "pos": [
+            3721,
+            3857
+          ]
+        },
+        {
+          "index": 26,
+          "class": "list-item",
+          "bbox": [
+            15,
+            514,
+            582,
+            537
+          ],
+          "pos": [
+            3857,
+            4111
+          ]
+        },
+        {
+          "index": 27,
+          "class": "text",
+          "bbox": [
+            15,
+            539,
+            531,
+            549
+          ],
+          "pos": [
+            4111,
+            4241
+          ]
+        },
+        {
+          "index": 28,
+          "class": "section-header",
+          "bbox": [
+            15,
+            555,
+            81,
+            563
+          ],
+          "pos": [
+            4241,
+            4261
+          ]
+        },
+        {
+          "index": 29,
+          "class": "list-item",
+          "bbox": [
+            15,
+            568,
+            508,
+            578
+          ],
+          "pos": [
+            4261,
+            4396
+          ]
+        },
+        {
+          "index": 30,
+          "class": "list-item",
+          "bbox": [
+            28,
+            580,
+            445,
+            590
+          ],
+          "pos": [
+            4396,
+            4504
+          ]
+        },
+        {
+          "index": 31,
+          "class": "list-item",
+          "bbox": [
+            28,
+            592,
+            552,
+            602
+          ],
+          "pos": [
+            4504,
+            4644
+          ]
+        },
+        {
+          "index": 32,
+          "class": "section-header",
+          "bbox": [
+            15,
+            604,
+            237,
+            614
+          ],
+          "pos": [
+            4644,
+            4699
+          ]
+        },
+        {
+          "index": 33,
+          "class": "list-item",
+          "bbox": [
+            15,
+            617,
+            541,
+            627
+          ],
+          "pos": [
+            4699,
+            4839
+          ]
+        },
+        {
+          "index": 34,
+          "class": "list-item",
+          "bbox": [
+            28,
+            629,
+            517,
+            639
+          ],
+          "pos": [
+            4839,
+            4976
+          ]
+        },
+        {
+          "index": 35,
+          "class": "list-item",
+          "bbox": [
+            28,
+            642,
+            511,
+            651
+          ],
+          "pos": [
+            4976,
+            5109
+          ]
+        },
+        {
+          "index": 36,
+          "class": "section-header",
+          "bbox": [
+            15,
+            654,
+            134,
+            664
+          ],
+          "pos": [
+            5109,
+            5145
+          ]
+        },
+        {
+          "index": 37,
+          "class": "list-item",
+          "bbox": [
+            15,
+            667,
+            435,
+            676
+          ],
+          "pos": [
+            5145,
+            5262
+          ]
+        },
+        {
+          "index": 38,
+          "class": "list-item",
+          "bbox": [
+            28,
+            679,
+            465,
+            689
+          ],
+          "pos": [
+            5262,
+            5383
+          ]
+        },
+        {
+          "index": 39,
+          "class": "text",
+          "bbox": [
+            15,
+            693,
+            582,
+            704
+          ],
+          "pos": [
+            5383,
+            5436
+          ]
+        },
+        {
+          "index": 40,
+          "class": "text",
+          "bbox": [
+            15,
+            706,
+            579,
+            716
+          ],
+          "pos": [
+            5436,
+            5605
+          ]
+        },
+        {
+          "index": 41,
+          "class": "section-header",
+          "bbox": [
+            15,
+            722,
+            236,
+            732
+          ],
+          "pos": [
+            5605,
+            5662
+          ]
+        },
+        {
+          "index": 42,
+          "class": "list-item",
+          "bbox": [
+            15,
+            735,
+            525,
+            745
+          ],
+          "pos": [
+            5662,
+            5788
+          ]
+        },
+        {
+          "index": 43,
+          "class": "list-item",
+          "bbox": [
+            28,
+            747,
+            541,
+            757
+          ],
+          "pos": [
+            5788,
+            5927
+          ]
+        },
+        {
+          "index": 44,
+          "class": "list-item",
+          "bbox": [
+            15,
+            760,
+            573,
+            782
+          ],
+          "pos": [
+            5927,
+            6110
+          ]
+        },
+        {
+          "index": 45,
+          "class": "list-item",
+          "bbox": [
+            15,
+            785,
+            582,
+            794
+          ],
+          "pos": [
+            6110,
+            6258
+          ]
+        },
+        {
+          "index": 46,
+          "class": "text",
+          "bbox": [
+            15,
+            798,
+            582,
+            832
+          ],
+          "pos": [
+            6258,
+            6637
+          ]
+        }
+      ]
+    },
+    "preview": "|**AKSHAY KUCHHAL**|| |---|---| |**E-mail: akshay.kuchhal@gmail.com | Ph: +91-8054516773 | LinkedIn**|| |**EDUCATION**|| |**Indian School of Business **| PGP |_Major – Strategy & Leadership_|_GMAT – 7"
+  }
+]

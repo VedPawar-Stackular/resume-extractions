@@ -1,0 +1,13 @@
+# PyMuPDF RAW Extraction — Himanshu_Vishwakarma_2.pdf
+# Mode   : get_text('text', sort=True) — zero post-processing
+# Format : .pdf | PDF type: scanned
+# Tool   : pymupdf_raw 1.27.2.3
+# Time   : 0.3775s | Chars: 1
+# NOTE   : This is the FLOOR — raw output with no structure recovery.
+#          Compare with .inferred.md for our manual reconstruction.
+──────────────────────────────────────────────────────────────────────
+
+WARNING: PDF type 'scanned' — scanned pages have no text layer. Raw PyMuPDF has NO built-in OCR. Those pages will be empty. Use pymupdf4llm (with Tesseract) or Marker for scanned support.
+WARNING: Raw output near-empty (1 chars). Scanned PDF — no text layer found. OCR required.
+
+

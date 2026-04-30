@@ -1,12 +1,12 @@
 {
   "tool": "pymupdf_raw",
   "tool_version": "1.27.2.3",
-  "run_at": "2026-04-29T10:45:55.969193+00:00",
+  "run_at": "2026-04-30T08:02:41.862969+00:00",
   "total_files": 1,
-  "successful": 1,
-  "empty_outputs": 0,
+  "successful": 0,
+  "empty_outputs": 1,
   "errors": 0,
-  "avg_duration_seconds": 0.0685,
+  "avg_duration_seconds": 0.3775,
   "role_in_eval": "BASELINE \u2014 shows what PyMuPDF provides with zero post-processing, and what our own font-size inference can recover. pymupdf4llm (03) is built on top of this exact engine.",
   "what_raw_gives_you": [
     "Full text content (native PDFs)",
@@ -25,33 +25,25 @@
   ],
   "files": [
     {
-      "file": "AKSHAY KUCHHAL 2.pdf",
+      "file": "Himanshu_Vishwakarma_2.pdf",
       "format": ".pdf",
-      "pdf_type": "native",
-      "duration_seconds": 0.0685,
-      "raw_char_count": 6588,
-      "inferred_char_count": 6476,
-      "inferred_heading_count": 1,
-      "span_count": 203,
-      "unique_font_sizes": [
-        13.0,
-        11.0,
-        10.7,
-        10.6,
-        10.0
+      "pdf_type": "scanned",
+      "duration_seconds": 0.3775,
+      "raw_char_count": 1,
+      "inferred_char_count": 0,
+      "inferred_heading_count": 0,
+      "span_count": 0,
+      "unique_font_sizes": [],
+      "body_font_size": null,
+      "heading_map": {},
+      "page_count": 2,
+      "warning_count": 2,
+      "warnings": [
+        "PDF type 'scanned' \u2014 scanned pages have no text layer. Raw PyMuPDF has NO built-in OCR. Those pages will be empty. Use pymupdf4llm (with Tesseract) or Marker for scanned support.",
+        "Raw output near-empty (1 chars). Scanned PDF \u2014 no text layer found. OCR required."
       ],
-      "body_font_size": 10.0,
-      "heading_map": {
-        "10.0": "",
-        "13.0": "# ",
-        "11.0": "## ",
-        "10.7": "### "
-      },
-      "page_count": 1,
-      "warning_count": 0,
-      "warnings": [],
       "error": null,
-      "status": "ok"
+      "status": "empty"
     }
   ]
 }
