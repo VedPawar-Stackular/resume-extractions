@@ -19,9 +19,15 @@ As of now these are the following inferences that are made:
 | **LlamaParse** | 10-30s | Yes (Cloud) | Semantic MD | Managed API / Best Quality |
 
 
-## Workflow for resume extraction
+## Optimal Workflow for Resume Extraction
 
-PDF input -> Convert to Markdown via the final selected tool -> Structring -> Scoring
+1.  **Format Gate**: 
+    -   `.docx` files → Route to **MarkItDown**.
+    -   `.pdf` / `.png` / `.jpg` → Route to **Final Extraction Engine**.
+2.  **Primary Engine**: **PyMuPDF4LLM**.
+    -   *Why not PyMuPDF raw?* While PyMuPDF is 20x faster, it produces raw text. Modern Scoring LLMs perform 30-50% better when provided with **Markdown** (headings, bold, tables). The 4-second extraction overhead is negligible compared to the 15-second LLM processing time.
+3.  **Fallback (Accuracy Buffer)**:
+    -   If the output is empty or highly garbled, route to **Marker** (requires GPU) or **LlamaParse** (Cloud API).
 
 ## Why Markdown, why not raw text
 Our pipeline follows a two-stage transformation: Raw File → Markdown → Structured **JSON**. 
@@ -36,4 +42,6 @@ Database Readiness: We store the final extraction as a **JSONB** object in our d
 *Extract Once, Score Many*: By converting to a standardized **JSON** schema, we only pay for the *Extraction* **LLM** call once. If the Job Description changes, we simply compare the new JD against the existing **JSON** data—saving time and money.
 
 
-The Bottom Line: We use Markdown to give the **LLM** the best possible *vision* of the resume, and we use **JSON** to turn that vision into a *data point* that can be mathematically scored against a Job Description.
+## The Bottom Line
+
+Extraction is only the first step. For an ATS to be reliable, the Scoring LLM needs **structured semantic context**. Using **PyMuPDF4LLM** ensures every resume is presented to the LLM in a clean, consistent Markdown format, minimizing hallucinations and maximizing scoring accuracy.

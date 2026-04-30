@@ -43,11 +43,34 @@ For an ATS processing 1000s of resumes, **PyMuPDF4LLM** is the recommended prima
 - **Weakness**: Cloud-only (data privacy), recurring cost, and API latency.
 - **ATS Role**: Best for handling "impossible" layouts or when the engineering team prefers a managed API over local model maintenance.
 
-## Final Recommendations for the ATS Pipeline
+## Analytical Deep Dive: The Hybrid (Two-Stage) Strategy
 
-1.  **Primary Engine**: Use **PyMuPDF4LLM**. It delivers the Markdown structure required by LLMs (bolding, headings, tables) at a speed that allows processing 1000s of resumes in hours on standard hardware.
-2.  **OCR Strategy**: If PyMuPDF4LLM detects a "scanned" PDF, it automatically invokes Tesseract. This is sufficient for most resumes. 
-3.  **Accuracy vs. Time Trade-off**:
-    -   If the LLM scoring accuracy is low due to poor formatting, upgrade to **Marker** (on GPU) or **LlamaParse**.
-    -   For 1000s of resumes on a budget, stick to **PyMuPDF4LLM**.
-4.  **Format Handling**: Use **MarkItDown** specifically for `.docx` files, as it outperforms most PDF tools on native Word formats.
+The USER proposed a "Speed-First" hybrid approach: Use **PyMuPDF** (0.2s) for all resumes and only use **PyMuPDF4LLM** (4.4s) as a fallback for failures/scanned files.
+
+### 1. Speed vs. Accuracy Trade-off
+*   **Speed Gain**: For 1000 native resumes, PyMuPDF saves ~70 minutes of CPU time.
+*   **Accuracy Loss**: PyMuPDF gives **Raw Text**; PyMuPDF4LLM gives **Markdown**. 
+*   **LLM Impact**: Modern LLMs (GPT-4o, Gemini 1.5 Pro) are "Markdown-native". They use `#` headings and `**` bolding to anchor their extraction. Feeding them raw text significantly increases the risk of "Context Bleed" (e.g., merging hobbies into work experience) and hallucinations in ATS scoring.
+
+### 2. The Bottleneck Problem
+In an ATS pipeline, extraction is only Stage 1. Stage 2 is **LLM Scoring**, which typically takes 10–20 seconds per resume.
+*   **PyMuPDF Workflow**: 0.2s (Ext) + 15s (LLM) = **15.2s Total**
+*   **PyMuPDF4LLM Workflow**: 4.4s (Ext) + 15s (LLM) = **19.4s Total**
+The difference is just **4.2 seconds**. For a processing pipeline that HR runs in the background, this saving is negligible compared to the quality gain from Markdown.
+
+### 3. Recommendation on Hybrid Strategy
+> [!IMPORTANT]
+> **Conclusion**: We recommend against the `PyMuPDF` -> `PyMuPDF4LLM` hybrid for Native PDFs. The quality degradation of raw text for the Scoring LLM outweighs the 4-second speed gain.
+
+**The "Better" Hybrid Path (Hierarchical Markdown)**:
+1.  **Stage 1 (Standard)**: Use **PyMuPDF4LLM** for all high-volume processing. It provides structured Markdown at a sustainable speed.
+2.  **Stage 2 (Correction)**: If PyMuPDF4LLM detects a "scanned" PDF or fails, fall back to **Marker** (if GPU is available) or **LlamaParse** for a second attempt.
+
+---
+
+## Final Extraction Pipeline Summary
+
+1.  **Input Detection**: Route `.docx` to MarkItDown; others to extraction engine.
+2.  **Core Extractor**: **PyMuPDF4LLM** (Balanced CPU performance).
+3.  **Structure**: Enforce **Markdown** as the intermediate format.
+4.  **Downstream**: Feed Markdown to the Scoring LLM for the highest precision ATS results.
