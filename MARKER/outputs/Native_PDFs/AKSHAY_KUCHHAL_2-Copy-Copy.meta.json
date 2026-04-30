@@ -1,0 +1,25 @@
+{
+  "file": "AKSHAY_KUCHHAL_2-Copy-Copy.pdf",
+  "file_path": "C:\\Stackular-Project-1\\resume-extractions\\sample_resumes\\AKSHAY_KUCHHAL_2-Copy-Copy.pdf",
+  "format": ".pdf",
+  "pdf_type": "native",
+  "tool": "marker",
+  "tool_version": "1.10.2",
+  "device": "cpu",
+  "device_name": "CPU (no GPU detected \u2014 expect slower processing)",
+  "use_llm": false,
+  "extracted_at": "2026-04-30T08:09:22.121682+00:00",
+  "model_load_included": false,
+  "duration_seconds": 30.7263,
+  "char_count": 6431,
+  "line_count": 76,
+  "heading_count": 12,
+  "table_count": 0,
+  "block_type_counts": {},
+  "page_count": 0,
+  "warnings": [
+    "Running on CPU (CPU (no GPU detected \u2014 expect slower processing)). Marker's Surya models are significantly faster on GPU. Expect 30\u2013120s/page on CPU vs <1s/page on H100. For production ATS batch processing, a GPU instance is strongly recommended.",
+    "No block metadata extracted from rendered output. Block-level type analysis unavailable for this file."
+  ],
+  "error": null
+}

@@ -1,0 +1,8 @@
+{
+  "file": "Himanshu_Vishwakarma_2.pdf",
+  "page_count": 0,
+  "block_type_counts": {},
+  "device": "cpu",
+  "duration_seconds": 705.2757,
+  "note": "block_type_counts shows how many of each Marker block type were detected. Key types for resumes: SectionHeader (headings), Table, ListGroup (bullet points), Text (body paragraphs)."
+}

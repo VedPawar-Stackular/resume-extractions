@@ -1,0 +1,41 @@
+# Marker — Resume Extraction Evaluation
+# Python 3.10+ required
+# ─────────────────────────────────────────────────────────────────
+# IMPORTANT: READ BEFORE pip install
+# ─────────────────────────────────────────────────────────────────
+# Marker is the heaviest install in this evaluation.
+# It pulls in PyTorch + Surya deep learning models.
+#
+# Step 1 — GPU users (CUDA): install PyTorch with CUDA FIRST
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+#   (adjust cu121 to match your CUDA version: cu118, cu121, cu124)
+#
+# Step 2 — CPU / Apple Silicon users: PyTorch CPU is installed
+#   automatically by marker-pdf. No extra step needed.
+#
+# Step 3 — Then install marker + format support:
+#   pip install -r requirements.txt
+#
+# First run: Marker downloads ~2–4 GB of Surya OCR model weights.
+#   This happens automatically and is cached for future runs.
+#   Ensure you have disk space and a stable internet connection.
+#
+# ─────────────────────────────────────────────────────────────────
+# LICENSE NOTE
+# ─────────────────────────────────────────────────────────────────
+# Model weights: AI Pubs Open Rail-M license
+#   Free for: research, personal use, startups < $2M revenue/funding
+#   Commercial beyond that: requires a paid license from datalab-to
+#   See: https://github.com/datalab-to/marker#commercial-usage
+#
+# Code: GPL — factor this into your production architecture decision
+# ─────────────────────────────────────────────────────────────────
+
+# Core: Marker with all document format support
+marker-pdf[docx]>=1.5.0
+
+# PyMuPDF for pre-flight scanned PDF detection
+pymupdf>=1.24.0
+
+# For metrics reporting
+tabulate>=0.9.0

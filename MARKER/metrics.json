@@ -1,0 +1,56 @@
+{
+  "tool": "marker",
+  "tool_version": "1.5.0+",
+  "device": "cpu",
+  "device_name": "CPU (no GPU detected \u2014 expect slower processing)",
+  "use_llm": false,
+  "run_at": "2026-04-30T08:09:52.997813+00:00",
+  "model_load_seconds": 5.1,
+  "total_files": 1,
+  "successful": 1,
+  "empty_outputs": 0,
+  "errors": 0,
+  "avg_duration_seconds_excl_model_load": 30.7263,
+  "license_note": "Model weights: AI Pubs Open Rail-M \u2014 free for research/personal/startups <$2M. Code: GPL. Commercial use beyond threshold requires a license from datalab-to.",
+  "architecture": "Visual layout detection via Surya deep learning models. NOT rule-based font-size inference. Sees the page as an image.",
+  "key_advantages": [
+    "Visual layout detection \u2014 handles designed/graphic resumes",
+    "Built-in Surya OCR \u2014 no Tesseract needed",
+    "DOCX + images in same pipeline (marker-pdf[docx])",
+    "Block-type metadata: SectionHeader, Table, ListGroup, Text, Figure",
+    "GPU, CPU, Apple MPS all supported",
+    "Fully local \u2014 files never leave your machine",
+    "Optional --use_llm for table accuracy boost"
+  ],
+  "key_limitations": [
+    "Heaviest install: ~2\u20134GB model download on first run",
+    "Slow on CPU (30\u2013120s/page vs <1s/page on H100)",
+    "GPL code license \u2014 factor into commercial architecture",
+    "Model load time (~10\u201330s) amortised across batch but noticeable for single files",
+    "Table detection weaker than Docling on complex multi-level tables"
+  ],
+  "files": [
+    {
+      "file": "AKSHAY_KUCHHAL_2-Copy-Copy.pdf",
+      "format": ".pdf",
+      "pdf_type": "native",
+      "device": "cpu",
+      "duration_seconds": 30.7263,
+      "char_count": 6431,
+      "line_count": 76,
+      "page_count": 0,
+      "heading_count": 12,
+      "table_count": 0,
+      "has_headings": true,
+      "has_tables": false,
+      "block_type_counts": {},
+      "warning_count": 2,
+      "warnings": [
+        "Running on CPU (CPU (no GPU detected \u2014 expect slower processing)). Marker's Surya models are significantly faster on GPU. Expect 30\u2013120s/page on CPU vs <1s/page on H100. For production ATS batch processing, a GPU instance is strongly recommended.",
+        "No block metadata extracted from rendered output. Block-level type analysis unavailable for this file."
+      ],
+      "error": null,
+      "status": "ok"
+    }
+  ]
+}
