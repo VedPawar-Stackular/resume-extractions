@@ -1,0 +1,36 @@
+# LlamaParse — Resume Extraction Evaluation
+# Python 3.10+ required
+
+# Core: LlamaParse cloud API client
+# NOTE: The original llama-parse package is deprecated.
+# Use llama-cloud-services which is maintained until May 2026,
+# then migrate to: pip install llama-cloud>=1.0
+llama-cloud-services>=0.6.0
+llama-cloud==0.1.46   # pinned — required by llama-cloud-services 0.6.x
+
+# For scanned PDF detection (pre-flight check before sending to API)
+pymupdf>=1.24.0
+
+# For async support (LlamaParse is async-native)
+nest-asyncio>=1.6.0
+
+# For metrics reporting
+tabulate>=0.9.0
+
+# ─────────────────────────────────────────────────────────────────
+# API KEY REQUIRED
+# ─────────────────────────────────────────────────────────────────
+# LlamaParse is a cloud API — you must have an account at:
+#   https://cloud.llamaindex.ai
+#
+# Set your key as an environment variable BEFORE running:
+#   export LLAMA_CLOUD_API_KEY="llx-xxxxxxxxxxxxxxxxxxxx"
+#
+# Free tier: 10,000 credits/month for new accounts.
+# Pricing:
+#   parse_without_llm  : 1 credit/page  (fast, no AI)
+#   cost_effective     : 3 credits/page (our DEFAULT — LLM-enhanced)
+#   agentic            : ~20 credits/page (deep understanding)
+#
+# This script uses cost_effective mode by default.
+# ─────────────────────────────────────────────────────────────────
