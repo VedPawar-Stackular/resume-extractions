@@ -5,3 +5,5 @@ Make a folder within the top folder and try out different techniques of extracti
 
 
 1. MarkItDown
+2. PyMu4PDF
+3. PyMu4PDFLLM
