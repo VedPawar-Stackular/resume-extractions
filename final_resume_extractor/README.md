@@ -5,7 +5,18 @@ For eg: MarkItDown is very good for .docx documents, whereas PyMu4PDF is good fo
 As of now these are the following inferences that are made:
 1. MarkItDown is perfect for .docx file, not compatible with .pdf and images
 2. PyMu4PDFLLM is perfect for Native PDFs(raw text) and Image PDFs(OCR capability is offered). The tool first checks each PDF if it has retrieable text inside, if yes, it does not use OCR functionality, if not, then it uses Tesseract to use OCR and gets the content from the PDF within 2 seconds into a proper .md(Markdown file) with proper headings, sub headings, table analysis, etc
- 
+3. PyMy4PDF is perfect for Native PDFs(raw text) only. They **do not** have OCR capabilities, and the output format for the extraction is raw .txt files. They consume 1% less tokens as compared to PyMy4PDFLLM tool. 
+4. **LlamaParse** is a cloud-based LLM parser that excels at semantic understanding and handling "impossible" layouts. It uses a vision-based approach and supports custom ATS instructions to shape the output. However, it involves API costs ($3.75/1k pages) and cloud privacy considerations.
+5. **Marker** is a powerful visual layout detector that produces high-quality Markdown. It is excellent at bullet preservation and section detection but is extremely slow on CPU (requires GPU for production-ready speeds).
+
+## Tool Comparison Summary
+
+| Tool | Speed (Native) | OCR Support | Output Quality | Recommended Use |
+| :--- | :--- | :--- | :--- | :--- |
+| **PyMuPDF** | 0.2s | No | Raw Text | Fast indexing |
+| **PyMuPDF4LLM** | 4.4s | Yes (Tesseract) | Good Markdown | **Primary Engine** |
+| **Marker** | 30s (CPU) | Yes (Surya) | Elite Markdown | Complex Layouts (GPU) |
+| **LlamaParse** | 10-30s | Yes (Cloud) | Semantic MD | Managed API / Best Quality |
 
 
 ## Workflow for resume extraction
