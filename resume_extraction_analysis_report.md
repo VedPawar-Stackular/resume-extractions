@@ -74,3 +74,73 @@ The difference is just **4.2 seconds**. For a processing pipeline that HR runs i
 2.  **Core Extractor**: **PyMuPDF4LLM** (Balanced CPU performance).
 3.  **Structure**: Enforce **Markdown** as the intermediate format.
 4.  **Downstream**: Feed Markdown to the Scoring LLM for the highest precision ATS results.
+
+## Dealing with Legacy `.doc` Files
+
+The `.doc` format is Microsoft's legacy Word 97-2003 binary format. Unlike `.docx` (which is an open XML-based format that can be easily parsed), `.doc` is a complex, proprietary binary stream.
+
+### Capability of Existing Tools
+1. **MarkItDown**: Uses the `mammoth` library internally. Mammoth **only** supports XML-based `.docx` files. It will fail if handed a true binary `.doc` file.
+2. **PyMuPDF / PyMuPDF4LLM / Marker**: These are built for PDFs and visual vector graphics. They cannot read MS Office binary files.
+3. **LlamaParse**: As a fully-managed cloud API, LlamaParse **does** support `.doc` files by handling the complex conversion engine on their servers.
+
+### Secondary Tools & Recommended Solutions for Local ATS
+If you cannot use LlamaParse (due to cost/privacy) and must process `.doc` files locally, here are the dominant strategies:
+
+1. **The "Raw Text" Method (`textract` / `antiword`)**
+    - **How it works**: Uses the python `textract` package, which relies on a C-binary called `antiword` under the hood.
+    - **Pros**: Lightweight, runs locally.
+    - **Cons**: It ONLY produces raw text. Just like raw PyMuPDF, it strips all headings, bold text, and tables. This degrades LLM scoring accuracy.
+
+2. **The "Enterprise" Conversion Method (`LibreOffice Headless`) - Recommended**
+    - **How it works**: Instruct the ATS server to invoke LibreOffice in headless mode (no GUI) to convert the binary into XML: `libreoffice --headless --convert-to docx resume.doc`.
+    - **Pros**: Perfectly translates the legacy binary into a modern `.docx`. You then pass the new `.docx` file into **MarkItDown** and get high-quality structured Markdown.
+    - **Cons**: Requires LibreOffice (`soffice`) to be installed on the host server/Docker container.
+
+3. **Commercial Libraries (`Spire.Doc`)**
+    - **How it works**: Python wrappers for commercial PDF/Doc management tools.
+    - **Pros**: Handles binary `.doc` natively in Python.
+    - **Cons**: Requires expensive paid licenses for production use.
+    - **Win32Com**: Works by controlling a physical installation of MS Word via Windows COM. Extremely brittle, only works on Windows Server, explicitly not recommended for scalable backend APIs.
+
+### The Recommended Workflow for `.doc`
+Since our extraction philosophy relies on **Structured Markdown**, we should NOT use `antiword` because it ruins the structure. 
+
+The pipeline should be:
+**`.doc` Input** → **LibreOffice Headless (convert-to docx)** → **MarkItDown** → **Markdown Output** → **LLM Scoring**.
+
+## Deployment & Infrastructure Strategy
+
+A critical concern for production is how third-party dependencies (Tesseract OCR, LibreOffice, Python libraries) are managed without burdening the end-user (HR) with manual installations.
+
+### 1. The "Zero-Install" Experience (Server-Side Architecture)
+The extraction tool should **not** run on the HR person's individual device. Instead, it lives on a centralized **Backend Server**.
+- **Frontend**: The HR user interacts with a Web Dashboard. They simply upload a file via their browser.
+- **Backend**: The server receives the file, runs the extraction script, and returns the result.
+- **Result**: The HR user needs **zero** installations. They don't even need to know Tesseract exists.
+
+### 2. Containerization with Docker (The "Bundle" Solution)
+To ensure the backend server has everything it needs, we use **Docker**. A Docker image acts as a "sealed box" that contains:
+1.  **The OS**: A lightweight Linux version (like Ubuntu or Alpine).
+2.  **The Environment**: Python 3.x and all libraries (`pymupdf4llm`, `markitdown`).
+3.  **Third-Party Binaries**: **Tesseract OCR** and **LibreOffice Headless** are pre-installed inside this image.
+
+**Deployment Workflow**:
+1.  Developer builds the Docker image.
+2.  Image is pushed to a Cloud Registry (AWS ECR, Docker Hub).
+3.  The Cloud Server (AWS EC2, Google Cloud Run) pulls the image and runs it.
+4.  Every time the server starts, it is guaranteed to have Tesseract and LibreOffice configured correctly.
+
+### 3. Scaling for High Volume
+For processing 1000s of resumes, a single server might become a bottleneck. 
+- **Async Workers (Celery/Redis)**: Instead of the user waiting for the extraction to finish, the file is put into a "Queue". A fleet of "Worker" containers pulls resumes from the queue and processes them in parallel.
+- **GPU Acceleration**: If using the **Marker** tool, the Docker container would be deployed to a server with a Dedicated GPU (e.g., AWS "G" series instances) to handle the visual heavy-lifting.
+
+### Summary of Deployment Tiers
+
+| Component | Responsibility | Environment |
+| :--- | :--- | :--- |
+| **HR User** | Uploads Resume | Browser (Chrome/Edge/Safari) |
+| **API Layer** | Handles Requests | Docker Container (Cloud) |
+| **Worker Layer** | Runs PyMuPDF4LLM / OCR | Docker Container (Cloud) |
+| **Storage** | Saves JSON Outcomes | Database (PostgreSQL/MongoDB) |
