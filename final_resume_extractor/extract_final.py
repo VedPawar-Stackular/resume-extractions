@@ -1,91 +1,181 @@
 """
 Final Resume Extractor — Production-Ready Extractor
 ==================================================
-Tool:    Unified Pipeline (Primary: PyMuPDF4LLM)
+Tool:    Unified Pipeline (Primary: PyMuPDF4LLM, Fallback: MarkItDown)
 Purpose: Optimal balance of speed and LLM-friendly Markdown output.
 
-Strategy:
-1.  Route .docx to MarkItDown.
-2.  Route PDF/Images to PyMuPDF4LLM.
-3.  Produce structured Markdown for consistent LLM scoring.
+Supported Formats:
+- .pdf  : Extracted via PyMuPDF4LLM (Native & Scanned support)
+- .docx : Extracted via MarkItDown
+- .doc  : Converted to .docx via LibreOffice, then extracted via MarkItDown
 
-Why consistency matters:
-Feeding raw text to a scoring LLM is 30-50% less accurate than feeding
-structured Markdown. This script ensures every candidate is evaluated
-against the same high-fidelity context.
+Usage:
+  python extract_final.py path/to/resume.pdf
+  python extract_final.py path/to/folder/
 """
 
-import os
 import sys
 import time
 import json
+import subprocess
+import tempfile
+import shutil
 from pathlib import Path
 from datetime import datetime, timezone
 
 # ── Dependencies ──────────────────────────────────────────────────────────────
 try:
     import pymupdf4llm
-    import pymupdf
 except ImportError:
-    print("[ERROR] Missing dependencies. Run: pip install pymupdf4llm pymupdf")
+    print("[ERROR] PyMuPDF4LLM not installed. Run: pip install pymupdf4llm")
     sys.exit(1)
+
+try:
+    from markitdown import MarkItDown
+    HAS_MARKITDOWN = True
+except ImportError:
+    HAS_MARKITDOWN = False
+    print("[WARN] MarkItDown not installed. DOCX extraction will be skipped.")
 
 # ── Constants ────────────────────────────────────────────────────────────────
 OUTPUTS_DIR = Path(__file__).parent / "final_outputs"
-SUPPORTED_EXTS = {".pdf"}
+SUPPORTED_EXTS = {".pdf", ".docx", ".doc"}
 
-def extract_final(file_path: Path) -> dict:
-    t_start = time.perf_counter()
+def convert_doc_to_docx(doc_path: Path) -> Path:
+    """
+    Uses LibreOffice (soffice) headless mode to convert legacy .doc to .docx.
+    Returns the path to the temporary .docx file.
+    """
+    temp_dir = Path(tempfile.gettempdir()) / "resume_conv"
+    temp_dir.mkdir(exist_ok=True)
     
-    # 1. Pre-flight check
-    if not file_path.exists():
-        return {"error": "File not found"}
+    # Try common soffice paths or assume it's in PATH
+    soffice_cmd = "soffice" # Standard on Linux/Mac. On Windows, might need full path if not in registry.
     
-    ext = file_path.suffix.lower()
+    # In a production Docker environment, this is always 'soffice'
+    cmd = [
+        soffice_cmd,
+        "--headless",
+        "--convert-to", "docx",
+        "--outdir", str(temp_dir),
+        str(doc_path)
+    ]
     
-    # 2. Strategy Routing
-    # Note: In a full project, you'd import markitdown here for .docx
-    if ext == ".docx":
-        # Placeholder for MarkItDown logic
-        return {"error": "DOCX routing requires MarkItDown integration."}
-
-    # 3. Primary Extraction (PyMuPDF4LLM)
-    print(f"[*] Extracting {file_path.name} via PyMuPDF4LLM...")
     try:
-        md_content = pymupdf4llm.to_markdown(str(file_path))
+        print(f"  [*] Converting legacy {doc_path.name} to DOCX...")
+        subprocess.run(cmd, check=True, capture_output=True)
+        docx_path = temp_dir / f"{doc_path.stem}.docx"
+        if docx_path.exists():
+            return docx_path
     except Exception as e:
-        return {"error": f"Extraction failed: {e}"}
+        print(f"  [ERROR] LibreOffice conversion failed: {e}")
+    
+    return None
+
+def extract_one(file_path: Path, mid_converter: 'MarkItDown') -> dict:
+    t_start = time.perf_counter()
+    ext = file_path.suffix.lower()
+    md_content = ""
+    status = "success"
+    
+    try:
+        if ext == ".pdf":
+            md_content = pymupdf4llm.to_markdown(str(file_path))
+        
+        elif ext == ".docx":
+            if HAS_MARKITDOWN and mid_converter:
+                md_content = mid_converter.convert(str(file_path)).text_content
+            else:
+                status = "error"
+                md_content = "MarkItDown not available for DOCX."
+        
+        elif ext == ".doc":
+            docx_path = convert_doc_to_docx(file_path)
+            if docx_path and HAS_MARKITDOWN and mid_converter:
+                md_content = mid_converter.convert(str(docx_path)).text_content
+                # Clean up temp file
+                docx_path.unlink()
+            else:
+                status = "error"
+                md_content = "Failed to convert or process legacy .doc file."
+        
+        else:
+            status = "error"
+            md_content = f"Unsupported extension: {ext}"
+
+    except Exception as e:
+        status = "error"
+        md_content = str(e)
         
     duration = round(time.perf_counter() - t_start, 4)
     
-    # 4. Success Response
     return {
         "file": file_path.name,
+        "format": ext,
         "duration": duration,
         "markdown": md_content,
-        "char_count": len(md_content),
-        "status": "success"
+        "status": status
     }
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python extract_final.py <resume_path>")
+        print("Usage: python extract_final.py <file_or_folder>")
         sys.exit(1)
         
-    file_path = Path(sys.argv[1])
-    result = extract_final(file_path)
+    target = Path(sys.argv[1]).resolve()
     
-    if "error" in result:
-        print(f"[ERROR] {result['error']}")
+    # Collect files
+    files = []
+    if target.is_file():
+        if target.suffix.lower() in SUPPORTED_EXTS:
+            files.append(target)
+    elif target.is_dir():
+        # Using a set to avoid double-counting on case-insensitive filesystems
+        found_files = set()
+        for ext in SUPPORTED_EXTS:
+            found_files.update(target.glob(f"*{ext}"))
+            found_files.update(target.glob(f"*{ext.upper()}"))
+        files = list(found_files)
+    
+    if not files:
+        print(f"[ERROR] No supported resumes found at: {target}")
         sys.exit(1)
         
-    # Save output
+    print(f"\n{'='*60}")
+    print(f"  Final Resume Extraction Pipeline")
+    print(f"  Target: {target}")
+    print(f"  Files : {len(files)} resume(s) identified")
+    print(f"{'='*60}\n")
+
+    mid_converter = MarkItDown() if HAS_MARKITDOWN else None
     OUTPUTS_DIR.mkdir(exist_ok=True)
-    out_file = OUTPUTS_DIR / f"{file_path.stem}.final.md"
-    out_file.write_text(result["markdown"], encoding="utf-8")
     
-    print(f"[✓] Extracted in {result['duration']}s")
-    print(f"[✓] Output saved to: {out_file}")
+    results = []
+    for f in sorted(files):
+        print(f"[*] Processing: {f.name}")
+        res = extract_one(f, mid_converter)
+        
+        if res["status"] == "success":
+            out_file = OUTPUTS_DIR / f"{f.stem}.final.md"
+            out_file.write_text(res["markdown"], encoding="utf-8")
+            print(f"  [OK] Extracted in {res['duration']}s")
+        else:
+            print(f"  [FAIL] {res['markdown']}")
+            
+        results.append(res)
+
+    # -- Final Summary -------------------------------------------------------
+    successes = [r for r in results if r["status"] == "success"]
+    print(f"\n{'='*60}")
+    print(f"  Extraction Summary")
+    print(f"  Total Files: {len(results)}")
+    print(f"  Successful : {len(successes)}")
+    print(f"  Failed     : {len(results) - len(successes)}")
+    if successes:
+        avg_time = sum(r["duration"] for r in successes) / len(successes)
+        print(f"  Avg Speed  : {avg_time:.2f}s per file")
+    print(f"  Outputs    : {OUTPUTS_DIR}")
+    print(f"{'='*60}\n")
 
 if __name__ == "__main__":
     main()
